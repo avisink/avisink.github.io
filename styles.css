@@ -170,7 +170,7 @@
 
 .contact-item a:hover {
   text-decoration: underline; 
-
+}
 /* Responsive design */
 @media (max-width: 768px) {
   nav ul li {
