@@ -76,7 +76,7 @@
   
   /* Specific styling for project icons */
   .project-icon {
-    width: 24px; /* Set icon size for projects */
+    width: 24px; 
     height: 24px;
     margin-left: 10px;
     vertical-align: middle;
@@ -84,47 +84,75 @@
   
   /* Highlighted text */
   .highlight {
-    color: #54912e; /* You can customize this color for highlighting */
+    color: #54912e; 
   }
   
   /* Maroon text and inline logo for About Me section */
   .maroon-text {
-    color: #7b1113; /* Maroon color for Huston-Tillotson */
-    font-weight: bold; /* Optional: Make it bold if preferred */
+    color: #7b1113; /* Maroon color for Htn */
+    font-weight: bold;
   }
   
   .inline-logo {
     width: auto;
-    height: 1em; /* Matches the height of the text */
-    vertical-align: middle; /* Aligns the icon with the text */
-    margin-left: 5px; /* Adds a small space between the text and the logo */
+    height: 1em; 
+    vertical-align: middle; 
+    margin-left: 5px; 
   }
+
+.icon-container {
+  display: inline-flex;
+  width: 50px; 
+  height: 50px;
+  border-radius: 50%;
+  background-color: transparent; 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+  justify-content: center; 
+  align-items: center; 
+  cursor: pointer; 
+}
+
+.project-icon {
+  width: 24px;
+  height: 24px; 
+  transition: transform 0.3s ease; 
+}
+
+.icon-container:hover {
+  background-color: #f0f0f0; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px; 
+}
+
+.icon-container:hover .project-icon {
+  transform: scale(1.1); 
+}
   
 /* Contact Section Grid */
 #contact .contact-grid {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
-  gap: 20px; /* Space between items */
+  gap: 20px; 
 }
 
 .contact-item {
   text-align: center;
-  width: 250px; /* Set width to make it more rectangular */
-  padding: 30px 20px; /* Adjust padding to make it look balanced */
+  width: 250px;
+  padding: 30px 20px;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
-  border-radius: 12px; /* Optional: Can keep some rounded corners */
-  background-color: #fff; /* Background color */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for default state */
-  display: flex; /* Flexbox to center the content */
+  border-radius: 12px; 
+  background-color: #fff; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  display: flex; 
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .contact-item:hover {
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for hover effect */
-  transform: translateY(-5px); /* Slight lift effect */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); 
+  transform: translateY(-5px); 
 }
 
 .contact-icon {
@@ -141,8 +169,7 @@
 }
 
 .contact-item a:hover {
-  text-decoration: underline; /* Optional: Hover effect for link */
-}
+  text-decoration: underline; 
 
 /* Responsive design */
 @media (max-width: 768px) {
