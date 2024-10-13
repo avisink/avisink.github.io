@@ -84,7 +84,7 @@
   
   /* Highlighted text */
   .highlight {
-    color: #0077b6; /* You can customize this color for highlighting */
+    color: #54912e; /* You can customize this color for highlighting */
   }
   
   /* Maroon text and inline logo for About Me section */
@@ -100,38 +100,65 @@
     margin-left: 5px; /* Adds a small space between the text and the logo */
   }
   
-  /* Contact Section Grid */
+/* Contact Section Grid */
+#contact .contact-grid {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  gap: 20px; /* Space between items */
+}
+
+.contact-item {
+  text-align: center;
+  width: 250px; /* Set width to make it more rectangular */
+  padding: 30px 20px; /* Adjust padding to make it look balanced */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border-radius: 12px; /* Optional: Can keep some rounded corners */
+  background-color: #fff; /* Background color */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for default state */
+  display: flex; /* Flexbox to center the content */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-item:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for hover effect */
+  transform: translateY(-5px); /* Slight lift effect */
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.contact-item a {
+  display: block;
+  font-size: 18px;
+  color: #0077b6;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline; /* Optional: Hover effect for link */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  nav ul li {
+    display: block;
+    margin: 10px 0;
+  }
+
   #contact .contact-grid {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   .contact-item {
-    text-align: center;
-    width: 150px;
+    margin-bottom: 20px;
   }
-  
-  .contact-icon {
-    width: 32px;
-    height: 32px;
-    margin-bottom: 10px;
-  }
-  
-  /* Responsive design */
-  @media (max-width: 768px) {
-    nav ul li {
-      display: block;
-      margin: 10px 0;
-    }
-  
-    #contact .contact-grid {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .contact-item {
-      margin-bottom: 20px;
-    }
-  }
-  
+}
+
+ 
