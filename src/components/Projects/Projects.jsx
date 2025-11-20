@@ -35,6 +35,7 @@ const Projects = () => {
       description: 'Collaborated in a team to develop VolunteerGo, a gamified web platform addressing the challenge of low long-term volunteer engagement. Designed and implemented core features to boost user interaction, aiming to improve volunteer retention through rewards-based participation tracking and community-building tools.',
       icon: '/images/data_analysis_icon.png',
       link: 'https://github.com/ftl-pod/VolunteerGo',
+      demoLink: 'https://www.loom.com/share/5354b615e44840668194fdd97f940cff',
       type: 'github',
       period: 'June 2025 – August 2025',
       location: 'San Francisco, CA'
@@ -73,7 +74,7 @@ const Projects = () => {
       icon: '/images/data_analysis_icon.png',
       link: 'https://github.com/avisink/irenet',
       type: 'github',
-      period: '2024',
+      period: '2025',
       location: 'Remote'
     },
     {
@@ -111,7 +112,7 @@ const Projects = () => {
       link: 'https://github.com/avisink/kudosboard',
       demoLink: 'https://www.loom.com/share/51c1bf5f61914477a2510b309a476ee6',
       type: 'github',
-      period: '2024',
+      period: '2025',
       location: 'Remote'
     },
     {
@@ -119,7 +120,9 @@ const Projects = () => {
       description: 'A fully-featured Sudoku game built with Python and Pygame featuring an interactive GUI with an auto-solve algorithm, multiple difficulty levels that progressively increase in complexity, and built-in timers to track solving performance. The game includes a clean, user-friendly interface with intuitive controls for number placement and puzzle navigation.',
       icon: '/images/sudoku_icon.png',
       link: 'https://github.com/avisink/sudoku',
-      type: 'github'
+      type: 'github',
+      period: '2024 - 2025',
+      location: 'Remote'
     },
     {
       title: 'Student Store',
@@ -128,7 +131,7 @@ const Projects = () => {
       link: 'https://github.com/avisink/student-store',
       demoLink: 'https://www.canva.com/design/DAGrgZQ-u84/1NDTPZcoLyDEMX-8wcW4XA/watch?utm_content=DAGrgZQ-u84&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h1fc28febb4',
       type: 'github',
-      period: '2024',
+      period: '2025',
       location: 'Remote'
     },
     {
@@ -138,7 +141,7 @@ const Projects = () => {
       link: 'https://github.com/avisink/flixster-unit3',
       demoLink: 'https://avisink-flixster.onrender.com/',
       type: 'github',
-      period: '2024',
+      period: '2025',
       location: 'Remote'
     },
     {
@@ -148,7 +151,7 @@ const Projects = () => {
       link: 'https://github.com/avisink/music-playlist-explorer',
       demoLink: 'https://music-playlist-explorer-by-ayo.netlify.app/',
       type: 'github',
-      period: '2024',
+      period: '2025',
       location: 'Remote'
     },
     {
@@ -158,7 +161,7 @@ const Projects = () => {
       link: 'https://github.com/avisink/globetrotter',
       demoLink: 'https://drive.google.com/file/d/1Lnk492MH19kasvn8ZKx0cqiTdUCg00NJ/preview',
       type: 'github',
-      period: '2024',
+      period: '2025',
       location: 'Remote'
     }
   ]
