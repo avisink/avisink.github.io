@@ -1,0 +1,116 @@
+.experience-section {
+  background: linear-gradient(180deg, var(--background-100) 0%, var(--background-50) 100%);
+}
+
+.experience-timeline {
+  position: relative;
+  padding-left: 0;
+}
+
+.experience-timeline::before {
+  display: none;
+}
+
+.experience-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 0;
+}
+
+.experience-item:last-child {
+  margin-bottom: 0;
+}
+
+.experience-icon {
+  display: none;
+}
+
+.experience-item:hover .experience-icon {
+  border-color: var(--accent-cyan-light);
+  color: var(--accent-cyan-light);
+  transform: scale(1.1);
+}
+
+.experience-content {
+  background: var(--bg-tertiary);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  border-left: 4px solid transparent;
+}
+
+.experience-item:hover .experience-content {
+  box-shadow: var(--shadow-md);
+  border-left-color: var(--primary-color);
+  transform: translateX(8px);
+}
+
+.experience-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-family: 'Playfair Display', serif;
+}
+
+.experience-company {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.experience-meta {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.highlight {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.period,
+.location {
+  color: var(--text-secondary);
+}
+
+.experience-description {
+  list-style: none;
+  padding: 0;
+}
+
+.experience-description li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.experience-description li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .experience-timeline {
+    padding-left: 0;
+  }
+
+  .experience-item {
+    padding-left: 0;
+  }
+
+  .experience-content {
+    padding: 1.5rem;
+  }
+}
