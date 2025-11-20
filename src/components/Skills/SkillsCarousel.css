@@ -1,0 +1,233 @@
+.skills-carousel-wrapper {
+  width: 100%;
+  margin-top: 2rem;
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.skills-carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding: 2rem 0;
+  cursor: grab;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  will-change: scroll-position;
+}
+
+.skills-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.skills-carousel:active {
+  cursor: grabbing;
+}
+
+.skill-card {
+  flex: 0 0 auto;
+  min-width: 140px;
+  width: 140px;
+  height: 140px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: float 6s ease-in-out infinite;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  will-change: transform;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(135, 71, 194, 0.1) 0%, rgba(190, 150, 227, 0.1) 100%);
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-card:hover,
+.skill-card.hovered {
+  transform: scale(1.15) !important;
+  border-color: var(--primary-color);
+  box-shadow: 
+    0 12px 24px rgba(135, 71, 194, 0.4),
+    0 0 40px rgba(135, 71, 194, 0.3),
+    inset 0 0 20px rgba(135, 71, 194, 0.1);
+  z-index: 10;
+  background: var(--bg-tertiary);
+}
+
+.skill-card-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .skills-carousel {
+    gap: 1rem;
+    padding: 1.5rem 0;
+  }
+
+  .skill-card {
+    min-width: 120px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .skill-name {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-card {
+    min-width: 100px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .skill-name {
+    font-size: 0.75rem;
+  }
+}
+
+/* Smooth scroll snap for better UX */
+.skill-card {
+  scroll-snap-align: start;
+}
+
+/* Enhanced gradient overlay on edges for seamless fade into background */
+.skills-carousel-wrapper::before,
+.skills-carousel-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  z-index: 5;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Dark theme - fade to dark background */
+.skills-carousel-wrapper::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    var(--bg-secondary) 0%,
+    var(--bg-secondary) 15%,
+    rgba(14, 8, 18, 0.9) 30%,
+    rgba(14, 8, 18, 0.7) 50%,
+    rgba(14, 8, 18, 0.4) 70%,
+    rgba(14, 8, 18, 0.1) 85%,
+    transparent 100%
+  );
+}
+
+.skills-carousel-wrapper::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    var(--bg-secondary) 0%,
+    var(--bg-secondary) 15%,
+    rgba(14, 8, 18, 0.9) 30%,
+    rgba(14, 8, 18, 0.7) 50%,
+    rgba(14, 8, 18, 0.4) 70%,
+    rgba(14, 8, 18, 0.1) 85%,
+    transparent 100%
+  );
+}
+
+/* Light theme gradient adjustments */
+:root[data-theme="light"] .skills-carousel-wrapper::before {
+  background: linear-gradient(
+    to right,
+    var(--bg-secondary) 0%,
+    var(--bg-secondary) 15%,
+    rgba(246, 241, 249, 0.9) 30%,
+    rgba(246, 241, 249, 0.7) 50%,
+    rgba(246, 241, 249, 0.4) 70%,
+    rgba(246, 241, 249, 0.1) 85%,
+    transparent 100%
+  );
+}
+
+:root[data-theme="light"] .skills-carousel-wrapper::after {
+  background: linear-gradient(
+    to left,
+    var(--bg-secondary) 0%,
+    var(--bg-secondary) 15%,
+    rgba(246, 241, 249, 0.9) 30%,
+    rgba(246, 241, 249, 0.7) 50%,
+    rgba(246, 241, 249, 0.4) 70%,
+    rgba(246, 241, 249, 0.1) 85%,
+    transparent 100%
+  );
+}
+
+@media (max-width: 768px) {
+  .skills-carousel-wrapper::before,
+  .skills-carousel-wrapper::after {
+    width: 60px;
+  }
+}
+

@@ -81,10 +81,19 @@
 .award-meta {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
   position: relative;
   z-index: 1;
+}
+
+.award-years {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .award-year {
@@ -94,6 +103,8 @@
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 600;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .award-level {

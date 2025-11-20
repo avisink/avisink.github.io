@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import SkillsCarousel from './SkillsCarousel'
 import './Skills.css'
 
 const Skills = () => {
@@ -27,15 +28,13 @@ const Skills = () => {
     }
   }, [])
 
-  const proficientSkills = [
-    'HTML/CSS', 'Business Analytics', 'Python', 'Excel/Numbers/Sheets', 'Data Analysis', 
+  // Combined skills array
+  const skills = [
+    'HTML/CSS', 'Business Analytics', 'Python', 'Excel, Numbers, Sheets', 'Data Analysis', 
     'NumPy', 'Pandas', 'Seaborn', 'Bash', 'Data Structures & Algorithms', 'Firebase', 
-    'OpenCV', 'PowerPoint/Keynote/Slides', 'PowerShell', 'Public Speaking', 
+    'OpenCV', 'PowerPoint, Keynote, Slides', 'PowerShell', 'Public Speaking', 
     'Web Development', 'CSI Camera Integration', 'Github', 'Version Control', 
-    'Word/Pages/Docs', 'Matplotlib', 'React.js', 'Node.js', 'Postman', 'PostgreSQL', 'Web Scraping'
-  ]
-
-  const familiarSkills = [
+    'Word/Pages/Docs', 'Matplotlib', 'React.js', 'Node.js', 'Postman', 'PostgreSQL', 'Web Scraping',
     'Data Science', 'Tableau', 'JavaScript', 'Natural Language Processing (NLP)', 
     'Tensorflow', 'GPU', 'Jupyter', 'Machine Learning', 'R', 'Pytorch', 'CUDA', 
     'iOS/Swift', 'Salesforce', 'AWS', 'Postgres', 'Linux/Unix', 'Cryptography', 
@@ -49,28 +48,7 @@ const Skills = () => {
           <span className="title-number">05.</span>
           <span className="title-text">Skills</span>
         </h2>
-        <div className="skills-container">
-          <div className="skills-category">
-            <h3 className="category-title">Proficient In</h3>
-            <div className="skills-tags">
-              {proficientSkills.map((skill, index) => (
-                <span key={index} className="skill-tag proficient">
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="skills-category">
-            <h3 className="category-title">Very Familiar With</h3>
-            <div className="skills-tags">
-              {familiarSkills.map((skill, index) => (
-                <span key={index} className="skill-tag familiar">
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+        <SkillsCarousel skills={skills} />
       </div>
     </section>
   )

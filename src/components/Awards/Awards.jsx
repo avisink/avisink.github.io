@@ -32,7 +32,7 @@ const Awards = () => {
     {
       title: 'Apple Coding Club Competition Winner',
       issuer: 'Huston-Tillotson University',
-      year: '2025',
+      year: ['2025'],
       level: 'Competition',
       icon: <FaApple />,
       sortYear: 2025
@@ -40,7 +40,7 @@ const Awards = () => {
     {
       title: "Dean's List",
       issuer: 'Huston-Tillotson University',
-      year: '2024-2025',
+      year: ['2023-2024', '2024-2025'],
       level: 'Academic Year',
       icon: <FaStar />,
       sortYear: 2025
@@ -48,7 +48,7 @@ const Awards = () => {
     {
       title: 'Honor Roll',
       issuer: 'Huston-Tillotson University',
-      year: '2024-2025',
+      year: ['2023-2024', '2024-2025'],
       level: 'Academic Year',
       icon: <FaMedal />,
       sortYear: 2025
@@ -56,7 +56,7 @@ const Awards = () => {
     {
       title: 'W.E.B. DuBois Honors Scholarship',
       issuer: 'Huston-Tillotson University',
-      year: '2023',
+      year: ['2023'],
       level: 'College',
       icon: <FaAward />,
       sortYear: 2023
@@ -64,7 +64,7 @@ const Awards = () => {
     {
       title: 'Premium Award for Academic and Behavioral Excellence',
       issuer: 'Preston-International School',
-      year: '2021',
+      year: ['2021'],
       level: 'High School',
       icon: <FaTrophy />,
       sortYear: 2021
@@ -85,7 +85,15 @@ const Awards = () => {
               <h3 className="award-title">{award.title}</h3>
               <p className="award-issuer">{award.issuer}</p>
               <div className="award-meta">
-                <span className="award-year">{award.year}</span>
+                <div className="award-years">
+                  {Array.isArray(award.year) ? (
+                    award.year.map((year, yearIndex) => (
+                      <span key={yearIndex} className="award-year">{year}</span>
+                    ))
+                  ) : (
+                    <span className="award-year">{award.year}</span>
+                  )}
+                </div>
                 <span className="award-level">{award.level}</span>
               </div>
             </div>

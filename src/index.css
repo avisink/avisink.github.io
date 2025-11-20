@@ -222,11 +222,15 @@ body {
   color: var(--text-primary);
   background-color: var(--bg-secondary);
   overflow-x: hidden;
+  overflow-y: auto;
   background: linear-gradient(180deg, var(--background-50) 0%, var(--background-100) 100%);
+  margin: 0;
+  padding: 0;
 }
 
 #root {
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .container {
