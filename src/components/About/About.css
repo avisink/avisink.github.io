@@ -1,7 +1,7 @@
 .about-section {
   background: linear-gradient(135deg, var(--background-100) 0%, var(--background-50) 100%);
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Allow lanyard to extend into navbar gap */
 }
 
 .animated-background {
@@ -45,15 +45,24 @@
   z-index: 1;
 }
 
+.about-lanyard-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+  position: relative;
+  overflow: visible; /* Allow lanyard container to extend upward */
+}
+
+.about-text {
+  flex: 1;
+  min-width: 0;
+}
+
 .about-title {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
-}
-
-.about-text {
-  padding-left: 400px;
 }
 .greeting {
   font-size: 1.5rem;
@@ -145,6 +154,16 @@
 }
 
 @media (max-width: 768px) {
+  .about-lanyard-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .about-text {
+    padding-left: 0;
+  }
+
   .name {
     font-size: 2.5rem;
   }
