@@ -1,0 +1,181 @@
+.contact-section {
+  background: linear-gradient(135deg, var(--primary-500) 0%, var(--accent-500) 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  animation: contactPulse 15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes contactPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.3;
+}
+
+.contact-section .section-title {
+  color: white;
+}
+
+.contact-section .title-text::after {
+  background: white;
+}
+
+.contact-section .title-number {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  z-index: 1;
+}
+
+.contact-section.visible .contact-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.contact-section.visible .contact-card:nth-child(1) { animation-delay: 0.2s; }
+.contact-section.visible .contact-card:nth-child(2) { animation-delay: 0.4s; }
+.contact-section.visible .contact-card:nth-child(3) { animation-delay: 0.6s; }
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.contact-card:hover::before {
+  opacity: 1;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.contact-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  transition: var(--transition);
+  color: white;
+}
+
+.contact-card:hover .contact-icon {
+  transform: scale(1.2) rotate(10deg);
+  color: var(--accent-color, white);
+  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.3));
+}
+
+/* Specific colors for each contact method */
+.contact-card:nth-child(1) .contact-icon {
+  color: var(--accent-pink-light);
+}
+
+.contact-card:nth-child(2) .contact-icon {
+  color: var(--accent-cyan-light);
+}
+
+.contact-card:nth-child(3) .contact-icon {
+  color: var(--accent-teal-light);
+}
+
+.contact-card:nth-child(1):hover .contact-icon {
+  color: var(--accent-pink);
+}
+
+.contact-card:nth-child(2):hover .contact-icon {
+  color: var(--accent-cyan);
+}
+
+.contact-card:nth-child(3):hover .contact-icon {
+  color: var(--accent-teal);
+}
+
+.contact-label {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
+  font-family: 'Playfair Display', serif;
+}
+
+.contact-value {
+  font-size: 1rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-card {
+    padding: 2rem 1.5rem;
+  }
+}

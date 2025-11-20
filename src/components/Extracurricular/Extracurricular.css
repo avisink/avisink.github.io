@@ -1,0 +1,217 @@
+.extracurricular-section {
+  background: var(--bg-secondary);
+}
+
+.organizations-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.organization-card {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.organization-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.organization-card:hover::before {
+  transform: scaleX(1);
+}
+
+.organization-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.organization-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  font-family: 'Playfair Display', serif;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.75rem;
+}
+
+.roles-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.roles-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+}
+
+.role-item {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.role-item::before {
+  content: '';
+  position: absolute;
+  left: -2.25rem;
+  top: 0.19rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 3px solid var(--bg-tertiary);
+  z-index: 1;
+  transform: translateX(50%);
+}
+
+.role-item.current::before {
+  background: var(--secondary-color);
+  box-shadow: 0 0 0 3px var(--secondary-color), 0 0 0 6px rgba(190, 150, 227, 0.3);
+}
+
+.role-item.previous::before {
+  background: var(--text-secondary);
+  box-shadow: 0 0 0 3px var(--text-secondary);
+}
+
+.role-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.role-icon {
+  font-size: 1.5rem;
+  color: var(--accent-pink);
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.role-item:hover .role-icon {
+  color: var(--accent-pink-light);
+  transform: scale(1.15) rotate(5deg);
+}
+
+.role-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.role-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+}
+
+.role-period {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.current-badge {
+  background: rgba(190, 150, 227, 0.15);
+  color: var(--secondary-color);
+  border: 1px solid rgba(190, 150, 227, 0.3);
+}
+
+.previous-badge {
+  background: rgba(184, 153, 204, 0.1);
+  color: var(--text-secondary);
+  border: 1px solid rgba(184, 153, 204, 0.2);
+}
+
+.role-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0;
+  padding-left: 2.5rem;
+}
+
+.role-item.current .role-description {
+  color: var(--text-primary);
+}
+
+.role-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding-left: 2.5rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.role-link:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .organizations-container {
+    gap: 2rem;
+  }
+
+  .organization-card {
+    padding: 1.5rem;
+  }
+
+  .organization-name {
+    font-size: 1.25rem;
+  }
+
+  .roles-timeline {
+    padding-left: 1.5rem;
+  }
+
+  .role-item {
+    padding-left: 1.5rem;
+  }
+
+  .role-item::before {
+    left: -1.5rem;
+    width: 10px;
+    height: 10px;
+  }
+
+  .role-description {
+    padding-left: 2rem;
+  }
+}
