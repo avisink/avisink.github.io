@@ -40,7 +40,7 @@ const About = () => {
               <h1 className="about-title">
                 <span className="greeting">Hey there!</span>
                 <span className="name">
-                  I'm <ShuffleText text="Ayomide Isinkaye" />
+                  My name is <ShuffleText text="Ayomide" />
                 </span>
               </h1>
               <p className="pronunciation">Pronounced "Ah-yaw-mee-day"</p>
