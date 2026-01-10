@@ -52,16 +52,16 @@ export default function InteractiveCard({ imageUrl = '/Futureforce Day Goated He
       targetTranslateZ.current = 0;
     }
 
-    // Spring physics constants
-    const spring = 0.15; // Spring strength
-    const damping = 0.8; // Damping factor
-    const maxRotation = 35; // Maximum rotation in degrees (increased for more tilt)
-    const maxTranslateZ = 30; // Maximum depth in pixels (increased for more depth)
+    // spring physics constants
+    const spring = 0.15; // spring strength
+    const damping = 0.8; // damping factor
+    const maxRotation = 35; // max rotation 
+    const maxTranslateZ = 30; // max depth in px 
 
     const animate = () => {
       if (!cardInnerRef.current) return;
 
-      // Calculate spring forces
+      // spring forces
       const forceX = (targetRotateX.current - rotateX) * spring;
       const forceY = (targetRotateY.current - rotateY) * spring;
       const forceZ = (targetTranslateZ.current - translateZ) * spring;
@@ -282,12 +282,6 @@ export default function InteractiveCard({ imageUrl = '/Futureforce Day Goated He
 
             {/* Content */}
             <div className="interactive-card-content">
-              {/* Header */}
-              <div className="interactive-card-header">
-                <span>Snapshot</span>
-                <span>2025</span>
-              </div>
-
               {/* Photo area */}
               <div className="interactive-card-photo">
                 <div className="interactive-card-photo-frame">
@@ -310,7 +304,7 @@ export default function InteractiveCard({ imageUrl = '/Futureforce Day Goated He
                 </div>
 
                 <p className="interactive-card-hint">
-                  Click to see more!
+                  Click/Tap to see more!
                 </p>
               </div>
             </div>
@@ -331,7 +325,7 @@ export default function InteractiveCard({ imageUrl = '/Futureforce Day Goated He
               {/* Header */}
               <div className="interactive-card-header">
                 <span>About Me</span>
-                <span>2025</span>
+                <span>2026</span>
               </div>
 
               {/* Majors Section */}
@@ -371,10 +365,6 @@ export default function InteractiveCard({ imageUrl = '/Futureforce Day Goated He
                   </div>
                 </div>
               </div>
-
-              <p className="interactive-card-hint">
-                Click to flip back!
-              </p>
             </div>
           </div>
         </div>
