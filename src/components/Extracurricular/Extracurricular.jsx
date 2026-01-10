@@ -1,9 +1,30 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { FaUsers, FaCalculator, FaCode, FaLaptopCode, FaGavel, FaBook, FaMicrophone } from 'react-icons/fa'
+import HobbiesGallery from '../HobbiesGallery/HobbiesGallery'
 import './Extracurricular.css'
+
+// Giphy API helper function
+const fetchGiphyGif = async (searchTerm, apiKey) => {
+  try {
+    const response = await fetch(
+      `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${encodeURIComponent(searchTerm)}&limit=1&rating=g&lang=en`
+    )
+    const data = await response.json()
+    if (data.data && data.data.length > 0) {
+      return data.data[0].images.original.url
+    }
+    // Fallback to a default GIF if no results
+    return `https://media.giphy.com/media/3o7aD2saQpm4jHuPy0/giphy.gif`
+  } catch (error) {
+    console.error(`Error fetching GIF for ${searchTerm}:`, error)
+    // Fallback to a default GIF on error
+    return `https://media.giphy.com/media/3o7aD2saQpm4jHuPy0/giphy.gif`
+  }
+}
 
 const Extracurricular = () => {
   const sectionRef = useRef(null)
+  const [activeCategory, setActiveCategory] = useState('school')
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -116,6 +137,7 @@ const Extracurricular = () => {
     }
   ]
 
+
   return (
     <section id="extracurricular" className="extracurricular-section" ref={sectionRef}>
       <div className="container">
@@ -123,42 +145,67 @@ const Extracurricular = () => {
           <span className="title-number">04.</span>
           <span className="title-text">Extracurricular Activities</span>
         </h2>
-        <div className="organizations-container">
-          {organizations.map((org, orgIndex) => (
-            <div key={orgIndex} className="organization-card">
-              <h3 className="organization-name">{org.name}</h3>
-              <div className="roles-timeline">
-                {org.roles.map((role, roleIndex) => (
-                  <div 
-                    key={roleIndex} 
-                    className={`role-item ${role.period === 'Current' ? 'current' : 'previous'}`}
-                  >
-                    <div className="role-header">
-                      <div className="role-icon">{role.icon}</div>
-                      <div className="role-info">
-                        <h4 className="role-title">{role.title}</h4>
-                        <span className={`role-period ${role.period === 'Current' ? 'current-badge' : 'previous-badge'}`}>
-                          {role.period}
-                        </span>
-                      </div>
-                    </div>
-                    <p className="role-description">{role.description}</p>
-                    {role.link && (
-                      <a
-                        href={role.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="role-link"
-                      >
-                        Watch Presentation →
-                      </a>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+        
+        {/* Category Tabs */}
+        <div className="extracurricular-tabs">
+          <button
+            className={`extracurricular-tab ${activeCategory === 'school' ? 'active' : ''}`}
+            onClick={() => setActiveCategory('school')}
+          >
+            School Activities
+          </button>
+          <button
+            className={`extracurricular-tab ${activeCategory === 'hobbies' ? 'active' : ''}`}
+            onClick={() => setActiveCategory('hobbies')}
+          >
+            Hobbies & Interests
+          </button>
         </div>
+
+        {/* School Extracurriculars */}
+        {activeCategory === 'school' && (
+          <div className="organizations-container">
+            {organizations.map((org, orgIndex) => (
+              <div key={orgIndex} className="organization-card">
+                <h3 className="organization-name">{org.name}</h3>
+                <div className="roles-timeline">
+                  {org.roles.map((role, roleIndex) => (
+                    <div 
+                      key={roleIndex} 
+                      className={`role-item ${role.period === 'Current' ? 'current' : 'previous'}`}
+                    >
+                      <div className="role-header">
+                        <div className="role-icon">{role.icon}</div>
+                        <div className="role-info">
+                          <h4 className="role-title">{role.title}</h4>
+                          <span className={`role-period ${role.period === 'Current' ? 'current-badge' : 'previous-badge'}`}>
+                            {role.period}
+                          </span>
+                        </div>
+                      </div>
+                      <p className="role-description">{role.description}</p>
+                      {role.link && (
+                        <a
+                          href={role.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="role-link"
+                        >
+                          Watch Presentation →
+                        </a>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Hobbies Gallery */}
+        {activeCategory === 'hobbies' && (
+          <HobbiesGallery />
+        )}
       </div>
     </section>
   )
