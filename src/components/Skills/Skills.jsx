@@ -34,7 +34,7 @@ const Skills = () => {
     'NumPy', 'Pandas', 'Seaborn', 'Bash', 'Data Structures & Algorithms', 'Firebase', 
     'OpenCV', 'PowerPoint, Keynote, Slides', 'PowerShell', 'Public Speaking', 
     'Web Development', 'CSI Camera Integration', 'Github', 'Version Control', 
-    'Word/Pages/Docs', 'Matplotlib', 'React.js', 'Node.js', 'Postman', 'PostgreSQL', 'Web Scraping',
+    'Word, Pages, Docs', 'Matplotlib', 'React.js', 'Node.js', 'Postman', 'PostgreSQL', 'Web Scraping',
     'Data Science', 'Tableau', 'JavaScript', 'Natural Language Processing (NLP)', 
     'Tensorflow', 'GPU', 'Jupyter', 'Machine Learning', 'R', 'Pytorch', 'CUDA', 
     'iOS/Swift', 'Salesforce', 'AWS', 'Postgres', 'Linux/Unix', 'Cryptography', 
