@@ -6,9 +6,11 @@ const SkillsCarousel = ({ skills }) => {
   const animationFrameRef = useRef(null)
   const [isDragging, setIsDragging] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
+  const [isScrolling, setIsScrolling] = useState(false)
   const [startX, setStartX] = useState(0)
   const [scrollLeft, setScrollLeft] = useState(0)
   const [hoveredCard, setHoveredCard] = useState(null)
+  const scrollTimeoutRef = useRef(null)
 
   // Ensure skills is an array (handle both flat arrays and nested arrays)
   const allSkills = Array.isArray(skills) 
@@ -66,15 +68,76 @@ const SkillsCarousel = ({ skills }) => {
     setIsDragging(false)
   }
 
+  // Wheel scroll support (desktop only - mobile uses touch events)
+  const handleWheel = (e) => {
+    if (!carouselRef.current) return
+    
+    // Check if it's a touch device - if so, don't handle wheel events
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+    if (isTouchDevice) {
+      return // Let touch events handle scrolling on mobile
+    }
+    
+    // Prevent vertical scrolling from affecting the page
+    if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
+      return // Allow vertical scrolling to pass through
+    }
+    
+    // Only preventDefault if the event is cancelable
+    if (e.cancelable !== false) {
+      try {
+        e.preventDefault()
+      } catch (err) {
+        // Ignore errors if preventDefault fails
+      }
+    }
+    
+    setIsScrolling(true)
+    setIsPaused(true) // Pause auto-scroll when user scrolls
+    
+    // Smooth horizontal scrolling
+    carouselRef.current.scrollLeft += e.deltaX
+    
+    // Clear existing timeout
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current)
+    }
+    
+    // Resume auto-scroll after user stops scrolling
+    scrollTimeoutRef.current = setTimeout(() => {
+      setIsScrolling(false)
+      setIsPaused(false)
+    }, 1500) // Resume after 1.5 seconds of no scrolling
+  }
+
+  // Track manual scrolling
+  const handleScroll = () => {
+    if (!carouselRef.current) return
+    
+    setIsScrolling(true)
+    setIsPaused(true)
+    
+    // Clear existing timeout
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current)
+    }
+    
+    // Resume auto-scroll after user stops scrolling
+    scrollTimeoutRef.current = setTimeout(() => {
+      setIsScrolling(false)
+      setIsPaused(false)
+    }, 1500)
+  }
+
   // Infinite auto-scroll animation
   useEffect(() => {
-    if (!carouselRef.current || isDragging || isPaused) return
+    if (!carouselRef.current || isDragging || isPaused || isScrolling) return
 
     const scrollSpeed = 0.5 // Slow and steady (pixels per frame)
     let scrollPosition = 0
 
     const animate = () => {
-      if (!carouselRef.current || isDragging || isPaused) return
+      if (!carouselRef.current || isDragging || isPaused || isScrolling) return
 
       scrollPosition += scrollSpeed
       carouselRef.current.scrollLeft = scrollPosition
@@ -91,12 +154,44 @@ const SkillsCarousel = ({ skills }) => {
 
     animationFrameRef.current = requestAnimationFrame(animate)
 
+      return () => {
+        if (animationFrameRef.current) {
+          cancelAnimationFrame(animationFrameRef.current)
+        }
+      }
+    }, [isDragging, isPaused, isScrolling, allSkills.length])
+
+  // Add wheel event listener with non-passive option (desktop only)
+  useEffect(() => {
+    const carousel = carouselRef.current
+    if (!carousel) return
+
+    // Check if it's a touch device - don't add wheel listener on mobile
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+    if (isTouchDevice) {
+      return // Mobile uses touch events, not wheel events
+    }
+
+    const wheelHandler = (e) => {
+      handleWheel(e)
+    }
+
+    // Add event listener with { passive: false } to allow preventDefault
+    carousel.addEventListener('wheel', wheelHandler, { passive: false })
+
     return () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current)
+      carousel.removeEventListener('wheel', wheelHandler)
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Cleanup scroll timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current)
       }
     }
-  }, [isDragging, isPaused, allSkills.length])
+  }, [])
 
   // Pause on hover
   const handleWrapperMouseEnter = () => {
@@ -123,6 +218,7 @@ const SkillsCarousel = ({ skills }) => {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onScroll={handleScroll}
       >
         {duplicatedSkills.map((skill, index) => (
           <SkillCard

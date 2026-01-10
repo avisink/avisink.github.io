@@ -22,13 +22,14 @@
 .skills-carousel {
   display: flex;
   gap: 1.5rem;
-  overflow-x: hidden;
+  overflow-x: auto;
   overflow-y: hidden;
   padding: 2rem 0;
   cursor: grab;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   will-change: scroll-position;
+  scroll-behavior: smooth;
 }
 
 .skills-carousel::-webkit-scrollbar {

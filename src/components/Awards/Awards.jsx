@@ -30,6 +30,14 @@ const Awards = () => {
 
   const awards = [
     {
+      title: 'Best Presenter from Huston-Tillotson University',
+      issuer: ' International Conference on Science, Technology, Engineering, Mathematics, and Education 2025 (2025)',
+      year: ['2025'],
+      level: 'Competition',
+      icon: <FaAward />,
+      sortYear: 2025
+    },
+    {
       title: 'Apple Coding Club Competition Winner',
       issuer: 'Huston-Tillotson University',
       year: ['2025'],

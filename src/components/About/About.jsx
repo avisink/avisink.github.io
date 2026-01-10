@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import ShuffleText from '../ShuffleText/ShuffleText'
-import LanyardIDCard from '../LanyardIDCard/LanyardIDCard'
+import InteractiveCard from '../InteractiveCard/InteractiveCard'
 import './About.css'
 
 const About = () => {
@@ -34,8 +34,8 @@ const About = () => {
       <div className="animated-background"></div>
       <div className="container">
         <div className="about-content">
-          <div className="about-lanyard-wrapper">
-            <LanyardIDCard imageUrl="/Futureforce Day Goated Headshot.jpg" />
+          <div className="about-card-wrapper">
+            <InteractiveCard imageUrl="/Futureforce Day Goated Headshot.jpg" />
             <div className="about-text">
               <h1 className="about-title">
                 <span className="greeting">Hey there!</span>
