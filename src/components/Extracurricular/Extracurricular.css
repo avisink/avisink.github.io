@@ -2,6 +2,70 @@
   background: var(--bg-secondary);
 }
 
+.extracurricular-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.extracurricular-tab {
+  background: transparent;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition);
+  font-family: 'Inter', sans-serif;
+}
+
+.extracurricular-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.extracurricular-tab:hover {
+  color: var(--text-primary);
+}
+
+.extracurricular-tab.active {
+  color: var(--primary-color);
+}
+
+.extracurricular-tab.active::after {
+  transform: scaleX(1);
+}
+
+
+@media (max-width: 768px) {
+  .hobbies-gallery-container {
+    height: 500px;
+  }
+
+  .extracurricular-tabs {
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .extracurricular-tab {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
 .organizations-container {
   display: flex;
   flex-direction: column;
