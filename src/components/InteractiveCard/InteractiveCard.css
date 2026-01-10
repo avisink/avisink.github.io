@@ -454,11 +454,16 @@
 @media (max-width: 768px) {
   .interactive-card-wrapper {
     padding: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .interactive-card {
     width: 320px;
     height: 426px;
+    margin: 0 auto;
   }
 
   .interactive-card-content {
@@ -516,5 +521,17 @@
 
   .interactive-card-back-content {
     padding-bottom: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .interactive-card-wrapper {
+    padding: 0.75rem;
+  }
+
+  .interactive-card {
+    width: 100%;
+    max-width: 300px;
+    height: 400px;
   }
 }
