@@ -23,6 +23,7 @@ const Navbar = ({ activeSection }) => {
     { id: 'skills', label: 'Skills' },
     { id: 'awards', label: 'Awards' },
     { id: 'certifications', label: 'Certifications' },
+    { id: 'calendar', label: 'Calendar' },
     { id: 'contact', label: 'Contact' },
   ]
 

@@ -56,7 +56,7 @@ const Contact = () => {
     <section id="contact" className="contact-section" ref={sectionRef}>
       <div className="container">
         <h2 className="section-title">
-          <span className="title-number">08.</span>
+          <span className="title-number">09.</span>
           <span className="title-text">Get in Touch 😊</span>
         </h2>
         <div className="contact-grid">
