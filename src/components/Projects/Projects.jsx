@@ -55,6 +55,7 @@ const Projects = () => {
       description: 'An exploratory analysis of health datasets with dashboard creation. Analyzes different age groups from US states and territories to form a prediction dashboard where users can input their health info (age group, state, BMI, lifestyle) to see risk levels for diseases like diabetes, heart attack, COPD, etc. Features ML clustering with KMeans, PCA, and comprehensive health persona discovery.',
       icon: '/images/data_analysis_icon.png',
       link: 'https://github.com/avisink/Health_ML_Project',
+      demoLink: 'https://avisink-health-analysis-with-ml.streamlit.app/',
       type: 'github',
       period: 'Ongoing',
       location: 'Remote'
