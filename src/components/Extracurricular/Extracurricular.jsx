@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { FaUsers, FaCalculator, FaCode, FaLaptopCode, FaGavel, FaBook, FaMicrophone } from 'react-icons/fa'
+import { FaUsers, FaCalculator, FaCode, FaLaptopCode, FaGavel, FaBook, FaMicrophone, FaGraduationCap, FaVideo } from 'react-icons/fa'
 import HobbiesGallery from '../HobbiesGallery/HobbiesGallery'
 import './Extracurricular.css'
 
@@ -60,6 +60,25 @@ const Extracurricular = () => {
           description: 'Spoke at the Inaugural SBT SPEAK series about "Computer Vision: How do Machines See?" - a foundational presentation exploring how machines interpret the world, from self-driving cars to medical diagnostics.',
           icon: <FaMicrophone />,
           link: 'https://youtu.be/-R655k2DFoo?si=dLRZRHAtlDRheCAJ'
+        }
+      ]
+    },
+    {
+      name: 'W.E.B. Du Bois Honors Program, HTU',
+      roles: [
+        {
+          title: 'Honors Scholar',
+          period: 'Current',
+          description: 'Member of the W.E.B. Du Bois Honors Program and its Honors Mentorship Program.',
+          icon: <FaGraduationCap />
+        },
+        {
+          title: '"Tenacity Tape" - Reginald F. Lewis Cinematic Challenge',
+          period: '2026',
+          description: 'Made a mini-documentary on "Why Should White Guys Have All the Fun?", the biography of Reginald F. Lewis. It goes through the book chapter by chapter and connects his blueprint for success to W.E.B. Du Bois\'s "Talented Tenth" and to my own academic and career goals.',
+          icon: <FaVideo />,
+          link: '/watch',
+          linkLabel: 'Watch Video →'
         }
       ]
     },
@@ -191,7 +210,7 @@ const Extracurricular = () => {
                           rel="noopener noreferrer"
                           className="role-link"
                         >
-                          Watch Presentation →
+                          {role.linkLabel || 'Watch Presentation →'}
                         </a>
                       )}
                     </div>
